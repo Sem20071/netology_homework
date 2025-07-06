@@ -9,10 +9,13 @@
   > sudo dpkg -i vagrant_2.3.4-1_amd64.deb
   
 ### * Packer версии 1.9.х + плагин от Яндекс Облако по инструкции
-(Последняя версия в репозитории ubuntu 1.3.4. Скачал и установил c репозитория yandex версию 1.9.5.)
+Последняя версия в репозитории ubuntu 1.3.4. Скачал и установил c репозитория yandex версию 1.9.5.
   > mkdir packer
+> 
   > wget https://hashicorp-releases.yandexcloud.net/packer/1.9.5/packer_1.9.5_linux_amd64.zip -P ~/packer
+> 
   > unzip ~/packer/packer_1.9.5_linux_amd64.zip -d ~/packer
+> sudo cp packer /usr/bin/
 
 ### * уandex cloud cli Так же инициализируйте профиль с помощью yc init .
   > curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
@@ -94,5 +97,37 @@ docker version && docker compose version
 6. Удалите ВМ и образ.
 7. ВНИМАНИЕ! Никогда не выкладываете oauth token от облака в git-репозиторий! Утечка секретного токена может привести к финансовым потерям. После выполнения задания обязательно удалите секретные данные из файла mydebian.json и mydebian.json.pkr.hcl. (замените содержимое токена на "ххххх")
 8. В качестве ответа на задание загрузите результирующий файл в ваш ЛК.
+
+1. Файл mydebian.json отредактирован
+```
+    "builders": [
+        {
+            "type": "yandex",
+            "token": "y0__xC55vOuARjB3RMg_4Oo3RO7Qsb04Boo6M6YmyCW6Kg-vsqLRw",
+            "folder_id": "b1g18m3fmokhkjuqb2r2",
+            "zone": "ru-central1-a",
+            "image_name": "debian-11-docker",
+            "image_description": "my custom debian with docker",
+            "source_image_family": "debian-11",
+            "subnet_id": "e9b01c6stm7p7bd8sefh",
+            "use_ipv4_nat": true,
+            "disk_type": "network-hdd",
+            "ssh_username": "debian"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+              "sudo apt-get update",
+              "sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release",
+              "curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg",
+              "echo \"deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bullseye stable\" | sudo tee /etc/apt/sources.list.d/docker.list >
+              "sudo apt-get update",
+              "sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin"
+            ]
+        }
+    ]
+```
 
 
