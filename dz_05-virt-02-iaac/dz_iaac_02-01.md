@@ -39,21 +39,20 @@
 ```
 
 # Задача 2
-1. Убедитесь, что у вас есть ssh ключ в ОС или создайте его с помощью команды ssh-keygen -t ed25519
-2. Создайте виртуальную машину Virtualbox с помощью Vagrant и Vagrantfile в директории src.
-3. Зайдите внутрь ВМ и убедитесь, что Docker установлен с помощью команды:
-docker version && docker compose version
+## 1. Убедитесь, что у вас есть ssh ключ в ОС или создайте его с помощью команды ssh-keygen -t ed25519
+SSH ключ был создан ранее.
 
-1. SSH ключ был создан ранее.
-2. Виртуальная машина создана. В виду ограниченого доступа к репозиториям hashicorp с территории РФ, скачал образ системы с зеркала и добавил его в vagrant
+## 2. Создайте виртуальную машину Virtualbox с помощью Vagrant и Vagrantfile в директории src.
+ Виртуальная машина создана. В виду ограниченого доступа к репозиториям hashicorp с территории РФ, скачал образ системы с зеркала и добавил его в vagrant
     > vagrant box add db50d2a7-2dd2-4beb-b2ff-3f1c04e5d11a --name=ubuntu-20.04 --provider=virtualbox --force
     > aleksandrov_sp@aleksandrov-sp-dev:~$ vagrant box list
       ubuntu-20.04 (virtualbox, 0)
 
-   Далее отредактировал файл vagrantfile т.к. при добалении образа системы задал другое имя. И запустил создание виртуальной машины.
+   Далее отредактировал файл vagrantfile. И запустил создание виртуальной машины.
     > vagrant up
 
-3. Проверил версию Docker и docker compose
+## 3. Зайдите внутрь ВМ и убедитесь, что Docker установлен с помощью команды:
+docker version && docker compose version
    ```
    vagrant@server1:~$ sudo docker version && docker compose version
    Client: Docker Engine - Community
@@ -87,23 +86,15 @@ docker version && docker compose version
 ```
 
 # Задача 3
-1.Отредактируйте файл mydebian.json.pkr.hcl или mydebian.jsonl в директории src (packer умеет и в json, и в hcl форматы):
-  * добавьте в скрипт установку docker. Возьмите скрипт установки для debian из документации к docker,
-  * дополнительно установите в данном образе htop и tmux.(не забудьте про ключ автоматического подтверждения установки для apt)
-2. Найдите свой образ в web консоли yandex_cloud
-3. Необязательное задание(*): найдите в документации yandex cloud как найти свой образ с помощью утилиты командной строки "yc cli".
-4. Создайте новую ВМ (минимальные параметры) в облаке, используя данный образ.
-5. Подключитесь по ssh и убедитесь в наличии установленного docker.
-6. Удалите ВМ и образ.
-7. ВНИМАНИЕ! Никогда не выкладываете oauth token от облака в git-репозиторий! Утечка секретного токена может привести к финансовым потерям. После выполнения задания обязательно удалите секретные данные из файла mydebian.json и mydebian.json.pkr.hcl. (замените содержимое токена на "ххххх")
-8. В качестве ответа на задание загрузите результирующий файл в ваш ЛК.
-
-1. Файл mydebian.json отредактирован
+## 1.Отредактируйте файл mydebian.json.pkr.hcl или mydebian.jsonl в директории src (packer умеет и в json, и в hcl форматы):
+##   * добавьте в скрипт установку docker. Возьмите скрипт установки для debian из документации к docker,
+##   * дополнительно установите в данном образе htop и tmux.(не забудьте про ключ автоматического подтверждения установки для apt)
+Файл mydebian.json отредактирован
 ```
      "builders": [
         {
             "type": "yandex",
-            "token": "y0__xC55vOuARjB3RMg_4Oo3RO7Qsb04Boo6M6YmyCW6Kg-vsqLRw",
+            "token": "y0__xC55vOuARjB3RMg_4Oo3RO7Qsb04Boo6M6Ymy**************",
             "folder_id": "b1g18m3fmokhkjuqb2r2",
             "zone": "ru-central1-a",
             "image_name": "debian-11-docker",
@@ -132,14 +123,46 @@ docker version && docker compose version
     ]
 ```
 
-aleksandrov_sp@aleksandrov-sp-dev:~/packer$ yc compute image list
+2. Найдите свой образ в web консоли yandex_cloud
+   https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-02-iaac/images/dz_05-virt-02-iaac-01.png
+   
+3. Необязательное задание(*): найдите в документации yandex cloud как найти свой образ с помощью утилиты командной строки "yc cli".
+   aleksandrov_sp@aleksandrov-sp-dev:~/packer$ yc compute image list
 +----------------------+------------------+--------+----------------------+--------+
 |          ID          |       NAME       | FAMILY |     PRODUCT IDS      | STATUS |
 +----------------------+------------------+--------+----------------------+--------+
 | fd8787dmgnveh82b18vr | debian-11-docker |        | f2eh2keamkps7ekhfjge | READY  |
 +----------------------+------------------+--------+----------------------+--------+
 
-2. ![image](https://github.com/user-attachments/assets/9a023cef-75f8-49ed-b6dd-4b7971059476)
+```
+aleksandrov_sp@aleksandrov-sp-dev:~/packer$ yc compute image get fd8787dmgnveh82b18vr
+id: fd8787dmgnveh82b18vr
+folder_id: b1g18m3fmokhkjuqb2r2
+created_at: "2025-07-06T03:05:37Z"
+name: debian-11-docker
+description: my custom debian with docker
+storage_size: "3858759680"
+min_disk_size: "10737418240"
+product_ids:
+  - f2eh2keamkps7ekhfjge
+status: READY
+os:
+  type: LINUX
+hardware_generation:
+  legacy_features:
+    pci_topology: PCI_TOPOLOGY_V1
+```
+
+4. Создайте новую ВМ (минимальные параметры) в облаке, используя данный образ.
+>aleksandrov_sp@aleksandrov-sp-dev:~/packer$ yc compute instance create --name my-first-vm --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
+
+5. Подключитесь по ssh и убедитесь в наличии установленного docker.
+
+
+6. Удалите ВМ и образ.
+
+
+
 
 
 
