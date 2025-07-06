@@ -9,7 +9,7 @@
   > sudo dpkg -i vagrant_2.3.4-1_amd64.deb
   
 ### * Packer версии 1.9.х + плагин от Яндекс Облако по инструкции
-Последняя версия в репозитории ubuntu 1.3.4. Скачал и установил c репозитория yandex версию 1.9.5.
+Скачал и установил c репозитория Packer 1.9.5 + плагин с yandex облака.
   > mkdir packer
 > 
   > wget https://hashicorp-releases.yandexcloud.net/packer/1.9.5/packer_1.9.5_linux_amd64.zip -P ~/packer
@@ -44,9 +44,11 @@ SSH ключ был создан ранее.
 
 ## 2. Создайте виртуальную машину Virtualbox с помощью Vagrant и Vagrantfile в директории src.
  Виртуальная машина создана. В виду ограниченого доступа к репозиториям hashicorp с территории РФ, скачал образ системы с зеркала и добавил его в vagrant
-    > vagrant box add db50d2a7-2dd2-4beb-b2ff-3f1c04e5d11a --name=ubuntu-20.04 --provider=virtualbox --force
-    > aleksandrov_sp@aleksandrov-sp-dev:~$ vagrant box list
-      ubuntu-20.04 (virtualbox, 0)
+ 
+> aleksandrov_sp@aleksandrov-sp-dev:~$ vagrant box add db50d2a7-2dd2-4beb-b2ff-3f1c04e5d11a --name=ubuntu-20.04 --provider=virtualbox --force
+> 
+> aleksandrov_sp@aleksandrov-sp-dev:~$ vagrant box list
+  ubuntu-20.04 (virtualbox, 0)
 
    Далее отредактировал файл vagrantfile. И запустил создание виртуальной машины.
     > vagrant up
@@ -91,10 +93,10 @@ docker version && docker compose version
 ##   * дополнительно установите в данном образе htop и tmux.(не забудьте про ключ автоматического подтверждения установки для apt)
 Файл mydebian.json отредактирован
 ```
-     "builders": [
+    "builders": [
         {
             "type": "yandex",
-            "token": "y0__xC55vOuARjB3RMg_4Oo3RO7Qsb04Boo6M6Ymy**************",
+            "token": "y0__xC55vOuARjB3RMg_4Oo3RO7Qsb04Boo6M6YmyCW6Kg-vsqLRw",
             "folder_id": "b1g18m3fmokhkjuqb2r2",
             "zone": "ru-central1-a",
             "image_name": "debian-11-docker",
@@ -111,9 +113,11 @@ docker version && docker compose version
             "type": "shell",
             "inline": [
               "sudo apt-get update",
-              "sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release",
-              "curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg",
-              "echo \"deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bullseye stable\" | sudo tee /etc/apt/sources.list.d/docker.list >
+              "sudo apt-get install -y ca-certificates curl",
+              "sudo install -m 0755 -d /etc/apt/keyrings",
+              "sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc",
+              "sudo chmod a+r /etc/apt/keyrings/docker.asc",
+              "echo \"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bullseye stable\" | sudo tee /etc/apt/sources.list.d/docker.>
               "sudo apt-get update",
               "sudo apt-get install htop -y",
               "sudo apt-get install tmux -y",
@@ -123,25 +127,25 @@ docker version && docker compose version
     ]
 ```
 
-2. Найдите свой образ в web консоли yandex_cloud
+## 2. Найдите свой образ в web консоли yandex_cloud
    https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-02-iaac/images/dz_05-virt-02-iaac-01.png
    
-3. Необязательное задание(*): найдите в документации yandex cloud как найти свой образ с помощью утилиты командной строки "yc cli".
-   aleksandrov_sp@aleksandrov-sp-dev:~/packer$ yc compute image list
+## 3. Необязательное задание(*): найдите в документации yandex cloud как найти свой образ с помощью утилиты командной строки "yc cli".
+```
+> aleksandrov_sp@aleksandrov-sp-dev:~/packer$ yc compute image list
 +----------------------+------------------+--------+----------------------+--------+
 |          ID          |       NAME       | FAMILY |     PRODUCT IDS      | STATUS |
 +----------------------+------------------+--------+----------------------+--------+
-| fd8787dmgnveh82b18vr | debian-11-docker |        | f2eh2keamkps7ekhfjge | READY  |
+| fd8fcf33nc0kjftpnrci | debian-11-docker |        | f2eh2keamkps7ekhfjge | READY  |
 +----------------------+------------------+--------+----------------------+--------+
 
-```
-aleksandrov_sp@aleksandrov-sp-dev:~/packer$ yc compute image get fd8787dmgnveh82b18vr
-id: fd8787dmgnveh82b18vr
+> aleksandrov_sp@aleksandrov-sp-dev:~/packer$ yc compute image get fd8fcf33nc0kjftpnrci
+id: fd8fcf33nc0kjftpnrci
 folder_id: b1g18m3fmokhkjuqb2r2
-created_at: "2025-07-06T03:05:37Z"
+created_at: "2025-07-06T12:44:55Z"
 name: debian-11-docker
 description: my custom debian with docker
-storage_size: "3858759680"
+storage_size: "3409969152"
 min_disk_size: "10737418240"
 product_ids:
   - f2eh2keamkps7ekhfjge
@@ -153,14 +157,31 @@ hardware_generation:
     pci_topology: PCI_TOPOLOGY_V1
 ```
 
-4. Создайте новую ВМ (минимальные параметры) в облаке, используя данный образ.
->aleksandrov_sp@aleksandrov-sp-dev:~/packer$ yc compute instance create --name my-first-vm --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
+## 4. Создайте новую ВМ (минимальные параметры) в облаке, используя данный образ.
 
-5. Подключитесь по ssh и убедитесь в наличии установленного docker.
+> aleksandrov_sp@aleksandrov-sp-dev:~/packer$ yc compute instance create --name my-first-vm --create-boot-disk name=debian-11-docker,size=20G,image-id=fd8fcf33nc0kjftpnrci --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
 
 
-6. Удалите ВМ и образ.
+## 5. Подключитесь по ssh и убедитесь в наличии установленного docker.
+```
+> aleksandrov_sp@aleksandrov-sp-dev:~/packer$ ssh yc-user@<IP-адрес Виртуальной машины>
+> yc-user@fhmhrlig2t5u9d1lt55k:~$ docker --version
+Docker version 28.3.1, build 38b7060
+```
 
+## 6. Удалите ВМ и образ.
+
+Узнаем ID созданой виртуальной машины
+> yc compute instance list
+
+Удаляем виртуальную машину
+> yc compute instance delete <ID виртуальной машины>
+
+Узнаем ID созданного образа
+> yc compute image list
+
+Удаляем виртуальную машину
+> yc compute image delete <ID созданного образа>
 
 
 
