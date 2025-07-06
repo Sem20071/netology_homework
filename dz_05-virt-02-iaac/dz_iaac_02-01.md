@@ -130,4 +130,14 @@ docker version && docker compose version
     ]
 ```
 
+aleksandrov_sp@aleksandrov-sp-dev:~/packer$ yc compute image list
++----------------------+------------------+--------+----------------------+--------+
+|          ID          |       NAME       | FAMILY |     PRODUCT IDS      | STATUS |
++----------------------+------------------+--------+----------------------+--------+
+| fd8716m019qvlnms2d2u | debian-11-docker |        | f2eh2keamkps7ekhfjge | READY  |
++----------------------+------------------+--------+----------------------+--------+
+
+
+
+
 
