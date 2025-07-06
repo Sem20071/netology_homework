@@ -1,20 +1,20 @@
-## ##################### Задача 1
-Установите на личный Linux-компьютер или учебную локальную ВМ с Linux следующие сервисы(желательно ОС ubuntu 20.04):
+#  Задача 1
+## Установите на личный Linux-компьютер или учебную локальную ВМ с Linux следующие сервисы(желательно ОС ubuntu 20.04):
 
-* VirtualBox,
+### * VirtualBox,
   > sudo apt install virtualbox
   
-* Vagrant, рекомендуем версию 2.3.4
+### * Vagrant, рекомендуем версию 2.3.4
 Последняя версия в репозитории ubuntu 2.2.6. Скачал и установил deb пакет 2.3.4 версии с оффициального репозитория hashicorp.
   > sudo dpkg -i vagrant_2.3.4-1_amd64.deb
   
-* Packer версии 1.9.х + плагин от Яндекс Облако по инструкции
+### * Packer версии 1.9.х + плагин от Яндекс Облако по инструкции
 (Последняя версия в репозитории ubuntu 1.3.4. Скачал и установил c репозитория yandex версию 1.9.5.)
   > mkdir packer
   > wget https://hashicorp-releases.yandexcloud.net/packer/1.9.5/packer_1.9.5_linux_amd64.zip -P ~/packer
   > unzip ~/packer/packer_1.9.5_linux_amd64.zip -d ~/packer
 
-* уandex cloud cli Так же инициализируйте профиль с помощью yc init .
+### * уandex cloud cli Так же инициализируйте профиль с помощью yc init .
   > curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
   
   После завершения установки перезапустите командную оболочку
@@ -23,18 +23,19 @@
   Инициализируем профиль
   > yc init
 
-Версии установленых компонентов.
-aleksandrov_sp@aleksandrov-sp-dev:~/vagrant$ VBoxManage --version
-6.1.50_Ubuntur161033
+### Версии установленых компонентов.
+```
+   aleksandrov_sp@aleksandrov-sp-dev:~/vagrant$ VBoxManage --version
+   6.1.50_Ubuntur161033
 
-aleksandrov_sp@aleksandrov-sp-dev:~/vagrant$ vagrant --version
-Vagrant 2.3.4
+   aleksandrov_sp@aleksandrov-sp-dev:~/vagrant$ vagrant --version
+   Vagrant 2.3.4
 
-aleksandrov_sp@aleksandrov-sp-dev:~/packer$ packer --version
-1.9.5
+   aleksandrov_sp@aleksandrov-sp-dev:~/packer$ packer --version
+   1.9.5
+```
 
-
-## ##################### Задача 2
+# Задача 2
 1. Убедитесь, что у вас есть ssh ключ в ОС или создайте его с помощью команды ssh-keygen -t ed25519
 2. Создайте виртуальную машину Virtualbox с помощью Vagrant и Vagrantfile в директории src.
 3. Зайдите внутрь ВМ и убедитесь, что Docker установлен с помощью команды:
@@ -49,15 +50,17 @@ docker version && docker compose version
    Далее отредактировал файл vagrantfile т.к. при добалении образа системы задал другое имя. И запустил создание виртуальной машины.
     > vagrant up
 
-3.  > vagrant@server1:~$ sudo docker version && docker compose version
-    Client: Docker Engine - Community
+3. Проверил версию Docker и docker compose
+   ```
+   vagrant@server1:~$ sudo docker version && docker compose version
+   Client: Docker Engine - Community
      Version:           28.1.1
      API version:       1.49
      Go version:        go1.23.8
      Git commit:        4eba377
      Built:             Fri Apr 18 09:52:18 2025
      OS/Arch:           linux/amd64
-     Context:           default
+     Context:           default <
 
     Server: Docker Engine - Community
      Engine:
@@ -78,8 +81,9 @@ docker version && docker compose version
       Version:          0.19.0
       GitCommit:        de40ad0
     Docker Compose version v2.35.1
+```
 
-## ##################### Задача 3
+# Задача 3
 1.Отредактируйте файл mydebian.json.pkr.hcl или mydebian.jsonl в директории src (packer умеет и в json, и в hcl форматы):
   * добавьте в скрипт установку docker. Возьмите скрипт установки для debian из документации к docker,
   * дополнительно установите в данном образе htop и tmux.(не забудьте про ключ автоматического подтверждения установки для apt)
