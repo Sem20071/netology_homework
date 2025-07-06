@@ -100,7 +100,7 @@ docker version && docker compose version
 
 1. Файл mydebian.json отредактирован
 ```
-    "builders": [
+     "builders": [
         {
             "type": "yandex",
             "token": "y0__xC55vOuARjB3RMg_4Oo3RO7Qsb04Boo6M6YmyCW6Kg-vsqLRw",
@@ -124,6 +124,8 @@ docker version && docker compose version
               "curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg",
               "echo \"deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bullseye stable\" | sudo tee /etc/apt/sources.list.d/docker.list >
               "sudo apt-get update",
+              "sudo apt-get install htop -y",
+              "sudo apt-get install tmux -y",
               "sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin"
             ]
         }
@@ -134,8 +136,10 @@ aleksandrov_sp@aleksandrov-sp-dev:~/packer$ yc compute image list
 +----------------------+------------------+--------+----------------------+--------+
 |          ID          |       NAME       | FAMILY |     PRODUCT IDS      | STATUS |
 +----------------------+------------------+--------+----------------------+--------+
-| fd8716m019qvlnms2d2u | debian-11-docker |        | f2eh2keamkps7ekhfjge | READY  |
+| fd8787dmgnveh82b18vr | debian-11-docker |        | f2eh2keamkps7ekhfjge | READY  |
 +----------------------+------------------+--------+----------------------+--------+
+
+2. ![image](https://github.com/user-attachments/assets/9a023cef-75f8-49ed-b6dd-4b7971059476)
 
 
 
