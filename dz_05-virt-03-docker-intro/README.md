@@ -33,7 +33,7 @@ Hey, Netology
 
 ## Ответ:
 
-
+# https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-03-docker-intro/images/dz_05-virt-03-docker-intro-02.png
 
 
 
