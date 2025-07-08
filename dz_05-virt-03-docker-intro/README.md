@@ -18,7 +18,7 @@ Hey, Netology
 ### * Предоставьте ответ в виде ссылки на https://hub.docker.com/<username_repo>/custom-nginx/general .
 
 ## Ответ:
-# https://hub.docker.com/r/aleksandrovsp/custom-nginx/tags
+## https://hub.docker.com/r/aleksandrovsp/custom-nginx/tags
 
 
 # Задача 2
@@ -34,7 +34,7 @@ Hey, Netology
 
 ## Ответ:
 
-# https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-03-docker-intro/images/dz_05-virt-03-docker-intro-02.png
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-03-docker-intro/images/dz_05-virt-03-docker-intro-02.png
 
 # Задача 3
 1. Воспользуйтесь docker help или google, чтобы узнать как подключиться к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2".
@@ -54,4 +54,16 @@ Hey, Netology
 
 ## Ответ:
 ### Пункт 1-3
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-03-docker-intro/images/dz_05-virt-03-docker-intro-03-1.png
+Для подключения к стандартному потоку ввода/вывода/ошибок контейнера используем команду Docker attach
+После подключения к контейнеру и нажатия комбинации Ctrl-C, контейнер останавливается т.к. командой docker attach мы подключаемся к уже запущенному процессу, и при нажатии комбинации Ctrl-C процесс завершается и контейнер останавливается.
+
+### Пункт 4-10
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-03-docker-intro/images/dz_05-virt-03-docker-intro-03-3-1.png
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-03-docker-intro/images/dz_05-virt-03-docker-intro-03-3-2.png
+На 7ом шаге мы исправили конфигурацию nginx, а именно порт который слушает nginx, с 80 на 81. Но маппинг порта с хостовой машины остался прежним 8080:80. Как слеждствие мы не можем отрыть нашу страницу т.к. обращаясь к http://127.0.0.1:8080 на хостовой машине, мы попадаем на 80 порт контейнера, а там его никто не слушает.
+
+### Пункт 4-10
+
+
 
