@@ -143,6 +143,24 @@ services:
 
 ## Ответ:
 
+## Пункт 1
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-03-docker-intro/images/dz_05-virt-03-docker-intro-03-5-1.png
 Был заупщен файл Compose.yaml т.к. он считается более приоритетным.
 
-7. Warning нам сообщает что проект был изменен некоторые контейнеры более не определены в настройках проекта docker-compose. Так же он предлагает нам удалить контенеры которые более не определены в docker-compose проекте.  Остановить и удалить такие контенеры можно при помощи команды docker-compose down --remove-orphans.
+## Пункт 2
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-03-docker-intro/images/dz_05-virt-03-docker-intro-03-5-2.png
+
+## Пункт 3
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-03-docker-intro/images/dz_05-virt-03-docker-intro-03-5-3.png
+
+## Пункт 4-5
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-03-docker-intro/images/dz_05-virt-03-docker-intro-03-5-5.png
+
+## Пункт 6
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-03-docker-intro/images/dz_05-virt-03-docker-intro-03-5-6.png
+
+## Пункт 7
+Warning нам сообщает что проект был изменен некоторые контейнеры более не определены в настройках проекта docker-compose. Так же он предлагает нам удалить контенеры которые более не определены в docker-compose проекте.  Остановить и удалить такие контенеры можно при помощи команды:
+> docker-compose down --remove-orphans.
+
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-03-docker-intro/images/dz_05-virt-03-docker-intro-03-5-7.png
