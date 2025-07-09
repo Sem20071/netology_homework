@@ -96,13 +96,13 @@ docker version && docker compose version
     "builders": [
         {
             "type": "yandex",
-            "token": "y0__xC55vOuARjB3RMg_4Oo3RO7Qsb04Boo6M6YmyCW6Kg-vsqLRw",
-            "folder_id": "b1g18m3fmokhkjuqb2r2",
+            "token": "y0__xC55vOuARjB3RMg_4Oo3RO7Qsb04Boo6M6Y************,
+            "folder_id": "b1g18m3fmokh******r2",
             "zone": "ru-central1-a",
             "image_name": "debian-11-docker",
             "image_description": "my custom debian with docker",
             "source_image_family": "debian-11",
-            "subnet_id": "e9b01c6stm7p7bd8sefh",
+            "subnet_id": "e9b01c6stm7p******efh",
             "use_ipv4_nat": true,
             "disk_type": "network-hdd",
             "ssh_username": "debian"
