@@ -1,15 +1,24 @@
-На основе ранее полученых навыков , при помощи Packer был создан образ будующе операционной системы на основе ОС Ubuntu 24.04. Листинг 
+# Задача 1
+Создайте ваш первый Docker Swarm-кластер в Яндекс Облаке. Документация swarm: https://docs.docker.com/engine/reference/commandline/swarm_init/
+1. Создайте 3 облачные виртуальные машины в одной сети.
+2. Установите docker на каждую ВМ.
+3. Создайте swarm-кластер из 1 мастера и 2-х рабочих нод.
+4. Проверьте список нод командой:****
+
+# Ответ
+1. Через Packer был создан образ в YC. Образ уже включает в себя актуальную версию Docker и Docker-compose.
+
 ```
-"builders": [
+ "builders": [
         {
             "type": "yandex",
-            "token": "y0__xC55vOuARjB3RMg_4Oo3RO7Qsb04Boo6M6Ymy**************",
-            "folder_id": "b1g18m3fmokhkju*****",
+            "token": "y0__xC55vOuARjB3RMg_4Oo3RO7Qsb04Boo6M6YmyCW6Kg-vsqLRw",
+            "folder_id": "b1g18m3fmokhkjuqb2r2",
             "zone": "ru-central1-a",
             "image_name": "fd8jfh73rvks3qlqp3ck",
             "image_description": "my custom ubuntu2404 with docker",
             "source_image_family": "ubuntu-2404-lts-oslogin",
-            "subnet_id": "e9b01c6stm7********",
+            "subnet_id": "e9b01c6stm7p7bd8sefh",
             "use_ipv4_nat": true,
             "disk_type": "network-hdd",
             "ssh_username": "ubuntu"
@@ -21,15 +30,21 @@
             "inline": [
               "sudo apt-get update",
               "sudo apt-get install -y ca-certificates curl git",
-              "sudo install -m 0755 -d /etc/apt/keyrings",
-              "sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc",
-              "sudo chmod a+r /etc/apt/keyrings/docker.asc",
-              "echo \"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bullseye stable\" | sudo tee /etc/apt/sources.list.d>
-              "sudo apt-get update",
-              "sudo apt-get install -y htop",
-              "sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin"
+              "sudo curl -fsSL get.docker.com -o get-docker.sh && sudo chmod +x get-docker.sh && sudo ./get-docker.sh",
+              "sudo apt-get install -y htop"
             ]
         }
     ]
-
 ```
+На основе образа были развернуты 3 ВМ.
+1) yc compute instance create --name aleksandrov-sp-manager --create-boot-disk name=ubuntu-manager,image-id=fd80lrddhc0o8ajbsqbl,size=15,type=network-hdd --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --core-fraction=20 --preemptible --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
+2) yc compute instance create --name aleksandrov-sp-worker1 --create-boot-disk name=ubuntu-worker1,image-id=fd80lrddhc0o8ajbsqbl,size=15,type=network-hdd --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --core-fraction=20 --preemptible --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
+3) yc compute instance create --name aleksandrov-sp-worker2 --create-boot-disk name=ubuntu-worker2,image-id=fd80lrddhc0o8ajbsqbl,size=15,type=network-hdd --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --core-fraction=20 --preemptible --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
+
+2. Установите docker на каждую ВМ. 
+Актуальная версия Docker и Docker-compose были в созданом образе, и уже установлены в ВМ.
+
+3. Создайте swarm-кластер из 1 мастера и 2-х рабочих нод.
+
+
+
