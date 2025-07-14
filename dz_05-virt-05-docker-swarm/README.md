@@ -12,13 +12,13 @@
  "builders": [
         {
             "type": "yandex",
-            "token": "y0__xC55vOuARjB3RMg_4Oo3RO7Qsb04Boo6M6YmyCW6Kg-vsqLRw",
-            "folder_id": "b1g18m3fmokhkjuqb2r2",
+            "token": "y0__xC55vOuARjB3RMg_4Oo3RO7Qsb04Boo6M********",
+            "folder_id": "b1g18m3fmokh******",
             "zone": "ru-central1-a",
             "image_name": "fd8jfh73rvks3qlqp3ck",
             "image_description": "my custom ubuntu2404 with docker",
             "source_image_family": "ubuntu-2404-lts-oslogin",
-            "subnet_id": "e9b01c6stm7p7bd8sefh",
+            "subnet_id": "e9b01c6stm7p7bd****",
             "use_ipv4_nat": true,
             "disk_type": "network-hdd",
             "ssh_username": "ubuntu"
