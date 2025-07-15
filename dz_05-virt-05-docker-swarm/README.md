@@ -41,17 +41,17 @@
 2) yc compute instance create --name aleksandrov-sp-worker-01 --create-boot-disk name=ubuntu-worker-01,image-id=fd89sidsik6nna6job0o,size=15,type=network-hdd --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --core-fraction=20 --preemptible --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
 3) yc compute instance create --name aleksandrov-sp-worker-02 --create-boot-disk name=ubuntu-worker-02,image-id=fd89sidsik6nna6job0o,size=15,type=network-hdd --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --core-fraction=20 --preemptible --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
 
-# https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-05-docker-swarm/images/dz_05-virt-05-docker-swarm-01-01.png
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-05-docker-swarm/images/dz_05-virt-05-docker-swarm-01-01.png
 
 2. Установите docker на каждую ВМ. 
 Актуальная версия Docker и Docker-compose были в созданом образе, и уже установлены в ВМ.
-# https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-05-docker-swarm/images/dz_05-virt-05-docker-swarm-01-02.png
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-05-docker-swarm/images/dz_05-virt-05-docker-swarm-01-02.png
 
 3. Создайте swarm-кластер из 1 мастера и 2-х рабочих нод.
-# https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-05-docker-swarm/images/dz_05-virt-05-docker-swarm-01-03.png
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-05-docker-swarm/images/dz_05-virt-05-docker-swarm-01-03.png
 
 4. Проверьте список нод командой docker node ls
-# https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-05-docker-swarm/images/dz_05-virt-05-docker-swarm-01-04.png
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-05-docker-swarm/images/dz_05-virt-05-docker-swarm-01-04.png
 
 
 
