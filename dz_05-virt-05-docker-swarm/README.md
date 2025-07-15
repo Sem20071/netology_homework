@@ -37,9 +37,9 @@
     ]
 ```
 На основе образа были развернуты 3 ВМ.
-1) yc compute instance create --name aleksandrov-sp-manager --create-boot-disk name=ubuntu-manager,image-id=fd80lrddhc0o8ajbsqbl,size=15,type=network-hdd --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --core-fraction=20 --preemptible --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
-2) yc compute instance create --name aleksandrov-sp-worker1 --create-boot-disk name=ubuntu-worker1,image-id=fd80lrddhc0o8ajbsqbl,size=15,type=network-hdd --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --core-fraction=20 --preemptible --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
-3) yc compute instance create --name aleksandrov-sp-worker2 --create-boot-disk name=ubuntu-worker2,image-id=fd80lrddhc0o8ajbsqbl,size=15,type=network-hdd --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --core-fraction=20 --preemptible --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
+1) yc compute instance create --name aleksandrov-sp-manager-01 --create-boot-disk name=ubuntu-manager-01,image-id=fd89sidsik6nna6job0o,size=15,type=network-hdd --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --core-fraction=20 --preemptible --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
+2) yc compute instance create --name aleksandrov-sp-worker-01 --create-boot-disk name=ubuntu-worker-01,image-id=fd89sidsik6nna6job0o,size=15,type=network-hdd --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --core-fraction=20 --preemptible --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
+3) yc compute instance create --name aleksandrov-sp-worker-02 --create-boot-disk name=ubuntu-worker-02,image-id=fd89sidsik6nna6job0o,size=15,type=network-hdd --network-interface subnet-name=my-subnet-a,nat-ip-version=ipv4 --zone ru-central1-a --memory=2G --cores=2 --core-fraction=20 --preemptible --ssh-key /home/aleksandrov_sp/.ssh/id_ed25519.pub
 
 2. Установите docker на каждую ВМ. 
 Актуальная версия Docker и Docker-compose были в созданом образе, и уже установлены в ВМ.
