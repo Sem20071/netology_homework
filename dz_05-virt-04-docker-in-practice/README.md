@@ -16,10 +16,10 @@
 5. (Необязательная часть, *) Изучите код приложения и добавьте управление названием таблицы через ENV переменную.
 
 ## Ответ: 
-1. https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-1-1.png
-2.1. https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-01-2.png
-2.2. https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-01-3.png
-* 3. https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-01-4.png
+### 1. https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-1-1.png
+### 2.1. https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-01-2.png
+### 2.2. https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-01-3.png
+### * 3. https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-01-4.png
  
 
 ## Задача 3
@@ -33,3 +33,8 @@
 
 Остановите проект. В качестве ответа приложите скриншот sql-запроса.
 
+## Ответ: 
+### https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-3-1.png
+
+Результат выполнения SQL запроса:
+### https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-3-2.png
