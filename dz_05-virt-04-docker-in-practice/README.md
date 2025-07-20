@@ -51,7 +51,7 @@
 Результат выполнения  запроса:
 ### https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-4-1.png
 Ссылка на Fork-репозиторий:
-### https://github.com/Sem20071/shvirtd-example-python.git
+### https://github.com/Sem20071/shvirtd-example-python#
 
 
 
