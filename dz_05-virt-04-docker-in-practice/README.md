@@ -62,3 +62,12 @@
 ## Ответ:
 
 
+## Задача 6.1
+Добейтесь аналогичного результата, используя docker cp.
+Предоставьте скриншоты действий .
+
+## Ответ:
+
+### https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-6-1-1.png
+
+
