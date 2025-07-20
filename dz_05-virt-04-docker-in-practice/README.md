@@ -53,5 +53,12 @@
 Ссылка на Fork-репозиторий:
 ### https://github.com/Sem20071/shvirtd-example-python#
 
+5* Дополнительно настройте remote ssh context к вашему серверу. Отобразите список контекстов и результат удаленного выполнения docker ps -a
+### https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-4-5.png
+
+## Задача 6
+Скачайте docker образ hashicorp/terraform:latest и скопируйте бинарный файл /bin/terraform на свою локальную машину, используя dive и docker save. Предоставьте скриншоты действий .
+
+## Ответ:
 
 
