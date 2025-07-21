@@ -16,3 +16,33 @@
 6. Замените имя docker-контейнера в блоке кода на hello_world. Не перепутайте имя контейнера и имя образа. Мы всё ещё продолжаем использовать name = "nginx:latest". Выполните команду terraform apply -auto-approve. Объясните     своими словами, в чём может быть опасность применения ключа -auto-approve. Догадайтесь или нагуглите зачем может пригодиться данный ключ? В качестве ответа дополнительно приложите вывод команды docker ps.
 7. Уничтожьте созданные ресурсы с помощью terraform. Убедитесь, что все ресурсы удалены. Приложите содержимое файла terraform.tfstate.
 8. Объясните, почему при этом не был удалён docker-образ nginx:latest. Ответ ОБЯЗАТЕЛЬНО НАЙДИТЕ В ПРЕДОСТАВЛЕННОМ КОДЕ, а затем ОБЯЗАТЕЛЬНО ПОДКРЕПИТЕ строчкой из документации terraform провайдера docker. (ищите в              классификаторе resource docker_image )
+
+## Ответ:
+1. 
+2. personal.auto.tfvars
+3. 
+  > "result": "lyqf6fC8tvf1QTEK",
+4.  Ошибка №1 в блоке resource "docker_image" > resource "docker_image" "nginx"
+    Ошибка №2 в блоке "1nginx" > "nginx"
+    Ошибка №3 в строке name  = "example_${random_password.random_string_FAKE.resulT}" > name  = "example_${random_password.random_string.result}"
+    После указанных исправлений выполняем terraform validate
+  > Success! The configuration is valid.
+5. Исправленный фрагмент кода:
+```
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = true
+}
+
+resource "docker_container" "nginx" {
+  image = docker_image.nginx.image_id
+  name  = "example_${random_password.random_string.result}"
+
+  ports {
+    internal = 80
+    external = 9090
+  }
+}
+```
+Вывод команды docker ps:
+### 
