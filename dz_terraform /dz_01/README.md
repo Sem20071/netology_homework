@@ -59,5 +59,6 @@ https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_01/im
 7. Содержимое файла terraform.tfstate
    https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_01/images/terraform-01-7.png
 
-8. 
-   https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_01/images/terraform-01-8.png
+8. Согласно документации terraform провайдера docker, если параметр keep_locally в значении true, при операции Destroy образ не будут удален из локального хранилища образов docker.
+   https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_01/images/terraform-01-8-1.png
+   
