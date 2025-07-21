@@ -18,12 +18,13 @@
 8. Объясните, почему при этом не был удалён docker-образ nginx:latest. Ответ ОБЯЗАТЕЛЬНО НАЙДИТЕ В ПРЕДОСТАВЛЕННОМ КОДЕ, а затем ОБЯЗАТЕЛЬНО ПОДКРЕПИТЕ строчкой из документации terraform провайдера docker. (ищите в              классификаторе resource docker_image )
 
 ## Ответ:
-1. 
+### 1. https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_01/images/terraform-01-1.png
 2. personal.auto.tfvars
-3. 
+### 3. https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_01/images/terraform-01-3.png
   > "result": "lyqf6fC8tvf1QTEK",
+
 4.  Ошибка №1 в блоке resource "docker_image" > resource "docker_image" "nginx"
-    Ошибка №2 в блоке "1nginx" > "nginx"
+    Ошибка №2 в блоке resource "docker_container" "1nginx" > resource "docker_container" "nginx"
     Ошибка №3 в строке name  = "example_${random_password.random_string_FAKE.resulT}" > name  = "example_${random_password.random_string.result}"
     После указанных исправлений выполняем terraform validate
   > Success! The configuration is valid.
@@ -45,4 +46,6 @@ resource "docker_container" "nginx" {
 }
 ```
 Вывод команды docker ps:
-### 
+### https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_01/images/terraform-01-5.png
+
+6. 
