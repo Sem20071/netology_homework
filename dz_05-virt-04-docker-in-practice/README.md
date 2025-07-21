@@ -60,7 +60,11 @@
 Скачайте docker образ hashicorp/terraform:latest и скопируйте бинарный файл /bin/terraform на свою локальную машину, используя dive и docker save. Предоставьте скриншоты действий .
 
 ## Ответ:
+В dive мы можем послойно рассмотреть образ docker и увидеть в каком слое добавляется интересующий нас файл. В "layer detail" нас интересует пункт "Digest".
+### https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-6-1.png
 
+Через docker save сохраняем наш образ в формате tar и распаковываем его. Находим внутри архив с именем соотвтетствующий параметру "Digest", и распаковываем его. Файл terraform из образа у нас на хостовой машине.
+## https://github.com/Sem20071/netology_homework/blob/main/dz_05-virt-04-docker-in-practice/images/dz_05-virt-04-docker-in-practice-6-2.png
 
 ## Задача 6.1
 Добейтесь аналогичного результата, используя docker cp.
