@@ -48,4 +48,7 @@ resource "docker_container" "nginx" {
 Вывод команды docker ps:
 https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_01/images/terraform-01-5-0.png
 
-6. 
+6. https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_01/images/terraform-01-6.png
+   Ключ -auto-approve отключает интерактивное подтверждение. Есть вероятность потери данных а также получить на выходе не доступный сервис. 
+
+7. 
