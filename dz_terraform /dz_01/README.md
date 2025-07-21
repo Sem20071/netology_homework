@@ -19,7 +19,7 @@ https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_01/im
 
 ## Ответ:
 1. https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_01/images/terraform-01-1.png
-2. personal.auto.tfvars
+2. В файле personal.auto.tfvars допустимо сохранить личную, секретную информацию.
 3. https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_01/images/terraform-01-3.png
   > "result": "lyqf6fC8tvf1QTEK",
 
