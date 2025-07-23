@@ -14,11 +14,11 @@
 - ответы на вопросы.
 
 ## Ответ:
-1.
-2. Сервисный аккаунт и ключ созданы.
-3.
 4. Ошибками назвать не могу, скорее корректировка кода под свои данные
-   - Исправил variable "cloud_id", указал ID своего облака.
-   - Исправил variable "folder_id" указал директорию в своем облаке.
-   - Исправил service_account_key_file = file("~/.authorized_key.json") указав файл ключа на своем сервер.
-5. 
+   - Ошибка в блоке resource "yandex_compute_instance" "platform" , platform_id = "standart-v4"  исправил на platform_id = "standard-v1"
+   - Данная ошибка "he specified number of cores is not available on platform "standard-v1"; allowed core number: 2, 4" намекает нам что необходимо установить колличество ядер создоваемых ВМ в значение 2 или 4, исправил           cores = 1 на cores = 2 в блоке resource "yandex_compute_instance" "platform".
+   - metadata = { serial-port-enable = 1 исправил на metadata = { serial-port-enable = true, у параметра serial-port-enable должен быт установлен тип boolean
+6. preemptible = true этот параметр в значение true делает машину прерываемой. Параметр core_fraction=5
+   
+![cСкриншот ЛК YC с созданной ВМ](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_02/images/terraform-02-1.png)
+![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_02/images/terraform-02-5.png)
