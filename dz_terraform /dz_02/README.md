@@ -75,5 +75,5 @@
 4. Напишите interpolation-выражение, результатом которого будет: "John is admin for production server based on OS ubuntu-20-04 with X vcpu, Y ram and Z virtual disks", используйте данные из переменных test_list, test_map,     servers и функцию length() для подстановки значений.
 
 ## Ответ:
-1. 
+![Скриншот ответа](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_02/images/terraform-02-07-1.png).
    
