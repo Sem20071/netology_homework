@@ -64,6 +64,6 @@
 4. Проверьте terraform plan. Изменений быть не должно.
 
 ## Ответ:
-https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_02/vms_platform.tf
+### https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_02/vms_platform.tf
 
 
