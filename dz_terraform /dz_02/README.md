@@ -66,4 +66,14 @@
 ## Ответ:
 ### https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_02/vms_platform.tf
 
+## Задание 7
+Изучите содержимое файла console.tf. Откройте terraform console, выполните следующие задания:
 
+1. Напишите, какой командой можно отобразить второй элемент списка test_list.
+2. Найдите длину списка test_list с помощью функции length(<имя переменной>).
+3. Напишите, какой командой можно отобразить значение ключа admin из map test_map.
+4. Напишите interpolation-выражение, результатом которого будет: "John is admin for production server based on OS ubuntu-20-04 with X vcpu, Y ram and Z virtual disks", используйте данные из переменных test_list, test_map,     servers и функцию length() для подстановки значений.
+
+## Ответ:
+1. 
+   
