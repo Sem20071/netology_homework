@@ -27,23 +27,23 @@ variable "image_name" {
   description = "ubuntu release name"
 }
 
-#variable "vm_web_core" {
-#  type        = number
-#  default     = 2      
-#  description = "number of processor cores"
-#}
+variable "vm_web_core" {
+  type        = number
+  default     = 2      
+  description = "number of processor cores"
+}
 
-#variable "vm_web_memory" {
-#  type        = number
-#  default     = 1      
-#  description = "ubuntu release name"
-#}
+variable "vm_web_memory" {
+  type        = number
+  default     = 1      
+  description = "ubuntu release name"
+}
 
-#variable "vm_web_core_fraction" {
-#  type        = number
-#  default     = 5     
-#  description = "virtual cpu performance value"
-#}
+variable "vm_web_core_fraction" {
+  type        = number
+  default     = 5     
+  description = "virtual cpu performance value"
+}
 
 variable "vm_web_name" {                         #  Использую для local переменой  ЗАДАНИЕ 5
   type        = string
