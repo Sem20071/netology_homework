@@ -35,6 +35,6 @@ variable "vms_ssh_root_key" {
   type        = string
   default     = "ubuntu:$(var.vms_ssh_root_key)" # Понимаю что публичный ключ не самая конфидециальная информация, для теста перенес значение в файл personal.auto.tfvars, который добавлен в .gitignore
   description = "ssh-keygen -t ed25519"
-##  sensitive   = true
+  sensitive   = true
 }
 

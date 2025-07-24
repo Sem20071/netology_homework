@@ -1,4 +1,4 @@
-variable "vms_resources" {                               # Задача №6
+variable "vms_resources" {                                                          # Задача №6
     type = map(any)
     default = {
     web = {
@@ -14,7 +14,7 @@ variable "vms_resources" {                               # Задача №6
   }
 }
 
-variable "vm_metadata" {
+variable "vm_metadata" {                                                             # Задача №6
   type = object({serial-port-enable = number, ssh-keys = string})
   default = { serial-port-enable = 1, ssh-keys = "ubuntu:$(var.vms_ssh_root_key)"}
   }
