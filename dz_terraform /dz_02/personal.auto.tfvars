@@ -1,0 +1,1 @@
+#vms_ssh_root_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOoev5jqN92osASI07AwpFhwWBrJtXhNDzxTMX6fNu07 aleksandrov_sp@aleksandrov-sp-test"
