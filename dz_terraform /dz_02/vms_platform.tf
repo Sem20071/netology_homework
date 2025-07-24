@@ -16,8 +16,10 @@ variable "vms_resources" {                               # Задача №6
 
 variable "vm_metadata" {
   type = object({serial-port-enable = number, ssh-keys = string})
-  default = { serial-port-enable = 1, ssh-keys= "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOoev5jqN92osASI07AwpFhwWBrJtXhNDzxTMX6fNu07 aleksandrov_sp@aleksandrov-sp-test"}
-}
+  default = { serial-port-enable = 1, ssh-keys = "ubuntu:$(var.vms_ssh_root_key)"}
+  }
+  
+
 
 
 # Блок по заданию №2   ВМ1
