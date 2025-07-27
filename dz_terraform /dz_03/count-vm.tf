@@ -2,11 +2,12 @@ data "yandex_compute_image" "ubuntu" {
   family = var.image_name     
 }
 
-resource "yandex_compute_instance" "web" {
+resource "yandex_compute_instance" "web_vms" {
   count       = 2
   name        = "netology-develop-web-${count.index + 1}"                                                              
   platform_id = var.vm_platform_id
-  
+  depends_on  = [yandex_compute_instance.db_vms]
+  hostname    = "netology-develop-web-${count.index + 1}"
   resources {
     cores         = var.vms_resources.web.cores                           
     memory        = var.vms_resources.web.memory                          
@@ -27,5 +28,5 @@ resource "yandex_compute_instance" "web" {
     security_group_ids = [yandex_vpc_security_group.example.id]              # Задание 1
   }
   
-  metadata = var.vm_metadata
+   metadata = local.vm_metadata #local.vms_ssh_root_key
 }
