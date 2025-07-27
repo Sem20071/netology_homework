@@ -104,10 +104,3 @@ variable "storage_resources" {
     }
    }
 }
-
-
-#variable "my_ssh_key" {
-#  type        = string
-#  default     = "value"
-#  description = "my IAM token yc"
-#}

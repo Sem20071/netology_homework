@@ -26,5 +26,5 @@ resource "yandex_compute_instance" "db_vms" {
     security_group_ids = [yandex_vpc_security_group.example.id]          
   }
   
-  metadata = local.vm_metadata  #local.vms_ssh_root_key
+  metadata = local.vm_metadata 
 }
