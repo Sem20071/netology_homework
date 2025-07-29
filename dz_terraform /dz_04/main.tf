@@ -11,15 +11,15 @@ resource "yandex_vpc_subnet" "develop_a" {
   v4_cidr_blocks = ["10.0.1.0/24"]
 }
 
-resource "yandex_vpc_subnet" "develop_b" {
-  name           = "develop-ru-central1-b"
-  zone           = "ru-central1-b"
-  network_id     = yandex_vpc_network.develop.id
-  v4_cidr_blocks = ["10.0.2.0/24"]
-}
+#resource "yandex_vpc_subnet" "develop_b" {
+#  name           = "develop-ru-central1-b"
+#  zone           = "ru-central1-b"
+#  network_id     = yandex_vpc_network.develop.id
+#  v4_cidr_blocks = ["10.0.2.0/24"]
+#}
 
 
-module "test-vm" {
+module "marketing-vm" {
   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name       = "develop" 
   network_id     = yandex_vpc_network.develop.id
@@ -42,7 +42,7 @@ module "test-vm" {
 
 }
 
-module "example-vm" {
+module "analytics-vm" {
   source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name       = "stage"
   network_id     = yandex_vpc_network.develop.id
