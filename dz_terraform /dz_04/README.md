@@ -21,5 +21,18 @@
 5. Сгенерируйте документацию к модулю с помощью terraform-docs.
 
 ## Ответ:
+### 1. https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/vpc_prod_module/main.tf
+### 3. Cкриншот информации из terraform console о написанном модуле.
+![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-02-3.png).
+### 5. Скриншот документации к написанному модулю.
+![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-02-4.png).
+
+## Задание 3
+1. Выведите список ресурсов в стейте.
+2. Полностью удалите из стейта модуль vpc.
+3. Полностью удалите из стейта модуль vm.
+4. Импортируйте всё обратно. Проверьте terraform plan. Значимых(!!) изменений быть не должно. Приложите список выполненных команд и скриншоты процессы.
+
+
 
 
