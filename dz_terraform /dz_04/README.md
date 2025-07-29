@@ -4,3 +4,18 @@
 3. Предоставьте скриншот подключения к консоли и вывод команды sudo nginx -t, скриншот консоли ВМ yandex cloud с их метками. Откройте terraform console и предоставьте скриншот содержимого модуля. Пример: > module.marketing_vm
 
 ## Ответ:
+![Скриншот консоли и вывод команды sudo nginx -t](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-1.png).
+![скриншот консоли ВМ yandex cloud с их метками 1](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-2.png).
+![скриншот консоли ВМ yandex cloud с их метками 2](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-3.png).
+![скриншот terraform console](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-4.png).
+
+## Задание 2
+1. Напишите локальный модуль vpc, который будет создавать 2 ресурса: одну сеть и одну подсеть в зоне, объявленной при вызове модуля, например: ru-central1-a.
+2. Вы должны передать в модуль переменные с названием сети, zone и v4_cidr_blocks.
+3. Модуль должен возвращать в root module с помощью output информацию о yandex_vpc_subnet. Пришлите скриншот информации из terraform console о своем модуле. Пример: > module.vpc_dev
+4. Замените ресурсы yandex_vpc_network и yandex_vpc_subnet созданным модулем. Не забудьте передать необходимые параметры сети из модуля vpc в модуль с виртуальной машиной.
+5. Сгенерируйте документацию к модулю с помощью terraform-docs.
+
+## Ответ:
+
+
