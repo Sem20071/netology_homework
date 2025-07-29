@@ -40,6 +40,7 @@
    ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4-3.png)
 
 Список выполненых команд:
+
 Для просмотра списка стейтов:
    > terraform state list
 > 
