@@ -34,7 +34,15 @@
 4. Импортируйте всё обратно. Проверьте terraform plan. Значимых(!!) изменений быть не должно. Приложите список выполненных команд и скриншоты процессы.
 
 ## Ответ:
-1.  > terraform state list
-2.  
+   ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4.png).
+   ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4-1.png).
+   ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4-2.png).
+   ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4-3.png).
 
-
+Список выполненых команд:
+Для просмотра списка стейтов:
+> terraform state list
+Для удаления определенного стейта:
+> terradorm state rm <имя стейта>
+Для импорта стейта:
+> terraform import <имя стейта> <id стейта> 
