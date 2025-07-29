@@ -4,9 +4,13 @@
 3. Предоставьте скриншот подключения к консоли и вывод команды sudo nginx -t, скриншот консоли ВМ yandex cloud с их метками. Откройте terraform console и предоставьте скриншот содержимого модуля. Пример: > module.marketing_vm
 
 ## Ответ:
+### Скриншот консоли и вывод команды sudo nginx -t.
 ![Скриншот консоли и вывод команды sudo nginx -t](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-1.png).
+### Скриншот 1 консоли ВМ yandex cloud с их метками.
 ![скриншот консоли ВМ yandex cloud с их метками 1](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-2.png).
+### Скриншот 2 консоли ВМ yandex cloud с их метками.
 ![скриншот консоли ВМ yandex cloud с их метками 2](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-3.png).
+### Скриншот terraform console содержимого модуля.
 ![скриншот terraform console](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-4.png).
 
 ## Задание 2
