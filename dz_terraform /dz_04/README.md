@@ -5,13 +5,13 @@
 
 ## Ответ:
 ### Скриншот консоли и вывод команды sudo nginx -t.
-![Скриншот консоли и вывод команды sudo nginx -t](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-1.png).
+![Скриншот консоли и вывод команды sudo nginx -t](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-1.png)
 ### Скриншот 1 консоли ВМ yandex cloud с их метками.
-![скриншот консоли ВМ yandex cloud с их метками 1](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-2.png).
+![скриншот консоли ВМ yandex cloud с их метками 1](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-2.png)
 ### Скриншот 2 консоли ВМ yandex cloud с их метками.
-![скриншот консоли ВМ yandex cloud с их метками 2](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-3.png).
+![скриншот консоли ВМ yandex cloud с их метками 2](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-3.png)
 ### Скриншот terraform console содержимого модуля.
-![скриншот terraform console](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-4.png).
+![скриншот terraform console](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-01-4.png)
 
 ## Задание 2
 1. Напишите локальный модуль vpc, который будет создавать 2 ресурса: одну сеть и одну подсеть в зоне, объявленной при вызове модуля, например: ru-central1-a.
@@ -23,9 +23,9 @@
 ## Ответ:
 ### 1. https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/vpc_prod_module/main.tf
 ### 3. Cкриншот информации из terraform console о написанном модуле.
-![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-02-3.png).
+![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-02-3.png)
 ### 5. Скриншот документации к написанному модулю.
-![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-02-4.png).
+![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-02-4.png)
 
 ## Задание 3
 1. Выведите список ресурсов в стейте.
@@ -34,10 +34,10 @@
 4. Импортируйте всё обратно. Проверьте terraform plan. Значимых(!!) изменений быть не должно. Приложите список выполненных команд и скриншоты процессы.
 
 ## Ответ:
-   ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4.png).
-   ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4-1.png).
-   ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4-2.png).
-   ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4-3.png).
+   ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4.png)
+   ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4-1.png)
+   ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4-2.png)
+   ![Скриншот консоли](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform%20/dz_04/images/terraform-04-03-4-3.png)
 
 Список выполненых команд:
 Для просмотра списка стейтов:
