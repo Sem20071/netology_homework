@@ -41,8 +41,8 @@
 
 Список выполненых команд:
 Для просмотра списка стейтов:
-> terraform state list
+   > terraform state list
 Для удаления определенного стейта:
-> terradorm state rm <имя стейта>
+   > terradorm state rm <имя стейта>
 Для импорта стейта:
-> terraform import <имя стейта> <id стейта> 
+   > terraform import <имя стейта> <id стейта> 
