@@ -1,0 +1,5 @@
+vpc_cidr_blocks   = "10.0.1.0/24"
+vpc_subnet_zone   = "ru-central1-a"
+vpc_subnet_name   = "prod-ru-central1-a"
+vpc_network_name  = "prod"
+vpc_network_id    = "yandex_vpc_network.prod.id"
