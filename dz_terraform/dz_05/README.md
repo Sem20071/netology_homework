@@ -53,8 +53,7 @@
 
    ## Ответ:
 
-### Ссылка на PR ветки terraform-hotfix
-### https://github.com/Sem20071/netology_homework/pull/2
+### [Ссылка на PR ветки terraform-hotfix](https://github.com/Sem20071/netology_homework/pull/2)
 
 ## Задание 4
 
@@ -69,4 +68,5 @@
 Вводим НЕверный формат адреса(ов) в дефолтные значения переменных. Наблюдаем ошибку.
 ![Скриншот](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform/dz_05/images/terraform-05-04-1-2.png)
 ![Скриншот](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform/dz_05/images/terraform-05-04-2-2.png)
+
 
