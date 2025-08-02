@@ -56,3 +56,25 @@ variable "vpc_network_id" {
   default     = "value"
   description = "vpc_prod_module variable network_id"
 }
+
+variable "test_variables_validate" {
+  type        = string
+  default     = "192.168.0.1"
+  description = "ip-адрес"
+  validation {
+    condition = can(regex("^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$", var.test_variables_validate))
+    error_message = "Не верное значение переменной test_variables_validate"
+  }
+}
+
+variable "test_variables_list_validate" {
+  type        = list(string)
+  default     = ["192.168.0.1","1.1.1.1","1270.0.0.1"]
+  description = "список ip-адресов"
+   validation {
+    condition = alltrue([
+      for k in var.test_variables_list_validate : can(regex("^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$", k))
+    ])
+    error_message = "неверное значение переменной test_variables_list_validate"
+  }
+}
