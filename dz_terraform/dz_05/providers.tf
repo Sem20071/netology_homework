@@ -1,7 +1,12 @@
 terraform {
   required_providers {
+    template = {
+      source  = "hashicorp/template"
+      version = "~> 2.2.0"                  #Актуальная версия провайдера  hashicorp/template
+    }
     yandex = {
       source = "yandex-cloud/yandex"
+      version = "0.146.0"                   #Актуальная версия провайдера yandex-cloud
     }
   }
   required_version = "~>1.8.4"

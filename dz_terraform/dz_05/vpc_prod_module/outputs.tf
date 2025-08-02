@@ -13,6 +13,10 @@
 #}
 
 output "subnet_prod_a" {
-  description = "ID подсети"
+  description = "subnet info"
   value = yandex_vpc_subnet.prod_a
+}
+output "vpc_security_group_prod" {
+  description = "securrity group prod info"
+  value = yandex_vpc_security_group.prod
 }
