@@ -8,19 +8,23 @@
 
 ## Ответ:
 Вывод инструмента tflint указывает на 3 типа проблем нашего кода.
-1. Warning: Missing version constraint for provider "random" in `required_providers` (terraform_required_providers)
+>1. Warning: Missing version constraint for provider "random" in `required_providers` (terraform_required_providers)
+
 Не указана минимальная версия провайдера, в данном случае провайдера "random" 
 
-2. Warning: Module source "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main" uses a default branch as ref (main) (terraform_module_pinned_source)
+>2. Warning: Module source "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main" uses a default branch as ref (main) (terraform_module_pinned_source)
+   
 Риск изменения версии модуля в репозитории. Рекомендует зафиксировать версию.
 
-3. Warning: [Fixable] variable "public_key" is declared but not used (terraform_unused_declarations)
+>3. Warning: [Fixable] variable "public_key" is declared but not used (terraform_unused_declarations)
+   
 Переменная объявлена но нигде не используется.
 
 Вывод инструмента checkov указывает на 2 типа проблем нашего кода.
-1. Check: CKV_TF_2: "Ensure Terraform module sources use a tag with a version number" 
-2. Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
-Эти два предупреждения схожи, и направлены на фиксацию версии модуля. В первом случае виксация версии через тэг, во втором случая виксация версия более строгая через хэш коммита.
+>1. Check: CKV_TF_2: "Ensure Terraform module sources use a tag with a version number" 
+>2. Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
+
+Эти два предупреждения схожи, и говорят о необходимости фиксации версии модуля. В первом случае виксация версии через тэг, во втором случая виксация версия более строгая через хэш коммита.
 
 ## Задание 2
 1. Возьмите ваш GitHub-репозиторий с выполненным ДЗ 4 в ветке 'terraform-04' и сделайте из него ветку 'terraform-05'.
@@ -68,5 +72,6 @@
 Вводим НЕверный формат адреса(ов) в дефолтные значения переменных. Наблюдаем ошибку.
 ![Скриншот](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform/dz_05/images/terraform-05-04-1-2.png)
 ![Скриншот](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform/dz_05/images/terraform-05-04-2-2.png)
+
 
 
