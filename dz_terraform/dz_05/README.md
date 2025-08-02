@@ -62,3 +62,11 @@
 - type=string, description="ip-адрес" — проверка, что значение переменной содержит верный IP-адрес с помощью функций cidrhost() или regex(). Тесты: "192.168.0.1" и "1920.1680.0.1";
 - type=list(string), description="список ip-адресов" — проверка, что все адреса верны. Тесты: ["192.168.0.1", "1.1.1.1", "127.0.0.1"] и ["192.168.0.1", "1.1.1.1", "1270.0.0.1"].
    
+## Ответ:
+Вводим верный формат адреса(ов) в дефолтные значения переменных.
+![Скриншот](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform/dz_05/images/terraform-05-04-1.png)
+![Скриншот](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform/dz_05/images/terraform-05-04-2-1.png)
+Вводим НЕверный формат адреса(ов) в дефолтные значения переменных. Наблюдаем ошибку.
+![Скриншот](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform/dz_05/images/terraform-05-04-1-2.png)
+![Скриншот](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform/dz_05/images/terraform-05-04-2-2.png)
+
