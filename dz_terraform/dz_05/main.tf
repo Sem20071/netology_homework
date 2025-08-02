@@ -29,7 +29,7 @@ module "vpc_prod_module" {
 
 
 module "marketing-vm" {
-  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=09144db7f136b793064f1ac593fe2ac6921932f0"  # Указываем хэш коммита для фиксации версии модуля
   env_name       = "prod" 
   network_id     = module.vpc_prod_module.subnet_prod_a.network_id  #network_id_value
   subnet_zones   = [module.vpc_prod_module.subnet_prod_a.zone]  #subnet_zone_value
@@ -37,7 +37,8 @@ module "marketing-vm" {
   instance_name  = "vm-marketing"
   instance_count = 1
   image_family   = "ubuntu-2004-lts"
-  public_ip      = true
+  security_group_ids = [module.vpc_prod_module.vpc_security_group_prod.id]
+  public_ip      = false        #true
   depends_on = [
     module.vpc_prod_module
   ]
@@ -47,14 +48,14 @@ module "marketing-vm" {
      }
 
   metadata = {
-    user-data          = data.template_file.cloudinit.rendered #Для демонстрации №3
+    user-data          = data.template_file.cloudinit.rendered 
     serial-port-enable = 1
   }
 
 }
 
 module "analytics-vm" {
-  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=09144db7f136b793064f1ac593fe2ac6921932f0"         # Указываем хэш коммита для фиксации версии модуля
   env_name       = "stage"
   network_id     = module.vpc_prod_module.subnet_prod_a.network_id
   subnet_zones   = [module.vpc_prod_module.subnet_prod_a.zone]
@@ -62,7 +63,8 @@ module "analytics-vm" {
   instance_name  = "vm-analytics"
   instance_count = 1
   image_family   = "ubuntu-2004-lts"
-  public_ip      = true
+  public_ip      = false         #true
+  security_group_ids = [module.vpc_prod_module.vpc_security_group_prod.id]
   depends_on = [
     module.vpc_prod_module
   ]
