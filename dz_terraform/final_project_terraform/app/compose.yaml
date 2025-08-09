@@ -1,0 +1,25 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      backend:
+        ipv4_address: 172.20.0.5
+
+    restart: on-failure
+    env_file:
+      - .env
+    environment:
+      DB_HOST: ${db_host}
+      DB_NAME: ${db_name}
+      DB_USER: ${db_user}
+      DB_PASSWORD: ${db_pass}
+
+networks:
+   backend:
+     name: backend
+     driver: bridge
+     ipam:
+      config:
+        - subnet: 172.20.0.0/24
