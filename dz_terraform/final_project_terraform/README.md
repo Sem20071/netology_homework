@@ -1,4 +1,4 @@
-## Ссылка репозиторий
+## Ссылка на репозиторий
 ## https://github.com/Sem20071/netology_homework/tree/main/dz_terraform/final_project_terraform
 
 
@@ -12,4 +12,5 @@
 
 ### Приложение работает с БД созданной в YC.
 ![Скриншот4](https://github.com/Sem20071/netology_homework/blob/main/dz_terraform/final_project_terraform/images/FPT3.png)
+
 
