@@ -9,17 +9,6 @@ variable "folder_id" {
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id"
 }
 
-# variable "default_zone" {
-#   type        = string
-#   default     = "ru-central1-a"
-#   description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
-# }
-# variable "default_cidr" {
-#   type        = list(string)
-#   default     = ["10.0.1.0/24"]
-#   description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
-# }
-##### VPC 
 variable "vpc_network_name" {
   type        = string
   default     = "value"
@@ -52,7 +41,7 @@ variable "vpc_network_id" {
 
 variable "image_name" {
   type        = string
-  default     = "ubuntu-2004-lts"       
+  default     = "ubuntu-2404-lts"       
   description = "ubuntu release name"
 }
 
@@ -62,6 +51,21 @@ variable "vm_platform_id" {
   description = "yandex platform"
 }
 
+variable "vm_user_name" {
+  type        = string
+  default     = "ubuntu"       
+  description = "vm_user_name"
+  sensitive   = true
+}
+
+variable "vms_ssh_privat_key" {
+  type        = string
+  default     = "~/.ssh/id_ed25519"      
+  description = "SSH key for VM access"
+  sensitive   = true
+}
+
+
 variable "vms_ssh_root_key" {                                                             
   type = string
   default = "ssh = "
@@ -69,49 +73,70 @@ variable "vms_ssh_root_key" {
   sensitive   = true
   }
 
-variable "vm_metadata" {                                                            
-  type = object({serial-port-enable = number, ssh-keys = string})
-  default = { serial-port-enable = 1, ssh-keys = "ubuntu:$(var.vms_ssh_root_key)"}
-  }
-
 variable "vms_resources" {                                                          
     type = map(any)
     default = {
     vm = {
       cores         = 2
-      memory        = 2
-      core_fraction = 5
+      memory        = 4
+      core_fraction = 20
     }
    }
 }
 
-# variable "each_vm" {
-#   type = list(object({  vm_name=string, cpu=number, ram=number, disk_volume=number, core_fraction = number }))
-#   default = [
-#     {
-#       vm_name = "netology-develop-db-main",
-#       cpu = 2,
-#       ram = 2,
-#       disk_volume = 15,
-#       core_fraction = 20
-#     },
-#     {
-#       vm_name = "netology-develop-db-replica",
-#       cpu = 2,
-#       ram = 1,
-#       disk_volume = 10,
-#       core_fraction = 5
-#     }
-#   ]
-# }
+# Переменные окружения для ВМ
+variable "db_name" {
+  type        = string
+  default     = "example"       
+  description = "DB name"
+}
 
-# variable "storage_resources" {                                                          
-#     type = map(any)
-#     default = {
-#     storage = {
-#       cores         = 2
-#       memory        = 2
-#       core_fraction = 5
-#     }
-#    }
-# }
+variable "db_pass" {
+  type        = string
+  default     = "111zzz**"       
+  description = "DB password"
+}
+
+variable "db_user" {
+  type        = string
+  default     = "administrator"       
+  description = "DB user"
+}
+
+variable "vm_name" {
+  type        = string
+  default     = "final-project-vm-manager"       
+  description = "name VM"
+}
+
+# Переменные окружения для db 
+variable "db_cluster_name" {
+  type        = string
+  default     = "prod-cluster"       
+  description = "db cluster name"
+}
+
+variable "db_resources_preset" {
+  type        = string
+  default     = "s3-c2-m8"      
+  description = "db cluster resources preset id"
+}
+
+variable "disk_type_db" {
+  type        = string
+  default     = "network-hdd"      
+  description = "db disk type"
+}
+
+# Переменные блока registry
+variable "yc_registry_name" {
+  type        = string
+  default     = "my-registry"      
+  description = "yc_registry_name"
+}
+
+variable "yc_registry_role" {
+  type        = string
+  default     = "container-registry.images.puller"      
+  description = "yc_registry_role"
+}

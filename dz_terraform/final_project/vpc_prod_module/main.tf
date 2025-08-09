@@ -1,13 +1,3 @@
-# terraform {
-#   required_providers {
-#     yandex = {
-#       source = "yandex-cloud/yandex"
-#     }
-#   }
-#   required_version = "~>1.8.4"  ### some test
-# }
-
-
 resource "yandex_vpc_network" "prod" {
   name = var.network_name
 }

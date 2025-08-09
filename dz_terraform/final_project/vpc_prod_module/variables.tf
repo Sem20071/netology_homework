@@ -74,5 +74,23 @@ variable "security_group_ingress" {
       v4_cidr_blocks = ["0.0.0.0/0"]
       port           = 443
     },
+    {
+      protocol       = "TCP"
+      description    = "разрешить входящий  http для работы с mini-app"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+      port           = 8080
+    },
+    {
+      protocol       = "TCP"
+      description    = "разрешить входящий  http для работы с mini-app"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+      port           = 8090
+    },
+     {
+       protocol       = "TCP"
+       description    = "разрешить входящий mysql"
+       v4_cidr_blocks = ["0.0.0.0/0"]
+       port           = 3306
+     },
   ]
 }

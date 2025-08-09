@@ -1,0 +1,29 @@
+#cloud-config
+users:
+  - name: ubuntu
+    groups: sudo
+    shell: /bin/bash
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    ssh_authorized_keys:
+      - ${vms_ssh_root_key}
+write_files:
+  - path: /etc/environment
+    content: |
+      export yc_registry_id=${yc_registry_id}
+      
+package_update: true
+package_upgrade: false
+packages:
+  - vim
+  - curl
+  - ca-certificates
+  - git
+  - mysql-client-8.0
+runcmd:
+  - curl -fsSL https://get.docker.com -o get-docker.sh
+  - sh get-docker.sh
+  - usermod -aG docker ubuntu
+  - systemctl enable docker
+  - systemctl start docker
+  - rm get-docker.sh
+  

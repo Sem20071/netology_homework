@@ -3,7 +3,8 @@
 .terraform*
 
 !.terraformrc
-
+.env
+env_vars
 # .tfstate files
 *.tfstate
 *.tfstate.*
