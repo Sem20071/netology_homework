@@ -12,6 +12,39 @@ resource "yandex_container_registry" "my-registry" {
 resource "yandex_container_repository" "my-docker-repo" {
   name = "${yandex_container_registry.my-registry.id}/my-app"
 }
+# Создание сервисного аккаунта для доступа к реестру
+resource "yandex_iam_service_account" "registry-user" {
+  name        = "registry-user"
+  description = "Service account for pulling containers from YCR"
+}
+# Назначение прав
+resource "yandex_resourcemanager_folder_iam_binding" "puller_binding" {
+  folder_id = var.folder_id
+  role      = "container-registry.images.puller"
+  
+  members = [
+    "serviceAccount:${yandex_iam_service_account.registry-user.id}",
+  ]
+}
+# Создание ключа доступа для созданного аккаунта
+resource "yandex_iam_service_account_static_access_key" "sa_static_key" {
+  service_account_id = yandex_iam_service_account.registry-user.id
+  description        = "Static access key for container puller"
+}
+
+output "access_key" {
+  value = yandex_iam_service_account_static_access_key.sa_static_key.access_key
+  sensitive = true
+}
+
+output "secret_key" {
+  value = yandex_iam_service_account_static_access_key.sa_static_key.secret_key
+  sensitive = true
+}
+
+
+
+
 
 resource "yandex_container_registry_ip_permission" "my_ip_permission" {
   registry_id = yandex_container_registry.my-registry.id
@@ -28,7 +61,7 @@ resource "yandex_container_registry_iam_binding" "public_pull" {
   ]
 }
 
-# Инфа для доступа к registry
+# Инфа для доступа к БД для передачи в контейнер
 resource "local_file" "env_file" {
   filename = "${path.module}/app/.env"
   content  = <<-EOT

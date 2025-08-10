@@ -118,7 +118,7 @@ variable "db_cluster_name" {
 
 variable "db_resources_preset" {
   type        = string
-  default     = "s3-c2-m8"      
+  default     = "b1.medium"      
   description = "db cluster resources preset id"
 }
 

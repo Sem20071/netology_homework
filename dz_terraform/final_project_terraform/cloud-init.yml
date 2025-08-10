@@ -10,7 +10,9 @@ write_files:
   - path: /etc/environment
     content: |
       export yc_registry_id=${yc_registry_id}
-      
+      access_registry_access_key=${access_registry_access_key}
+      access_registry_user=${access_registry_user}
+      access_registry_pass=${access_registry_pass}
 package_update: true
 package_upgrade: false
 packages:
