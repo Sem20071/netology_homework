@@ -9,10 +9,8 @@ users:
 write_files:
   - path: /etc/environment
     content: |
-      export yc_registry_id=${yc_registry_id}
-      access_registry_access_key=${access_registry_access_key}
-      access_registry_user=${access_registry_user}
-      access_registry_pass=${access_registry_pass}
+      yc_registry_id=${yc_registry_id}
+ 
 package_update: true
 package_upgrade: false
 packages:
@@ -24,8 +22,16 @@ packages:
 runcmd:
   - curl -fsSL https://get.docker.com -o get-docker.sh
   - sh get-docker.sh
+  - groupadd docker
   - usermod -aG docker ubuntu
+  - newgrp docker
   - systemctl enable docker
   - systemctl start docker
   - rm get-docker.sh
+  - bash /root/registry-auth.sh
+  - docker pull cr.yandex/${yc_registry_id}/app-web:latest
+  - docker run -d -p 80:5000 cr.yandex/${yc_registry_id}/app-web:latest
+  
+
+
   

@@ -52,13 +52,6 @@ data "template_file" "cloudinit" {
   template = file("${path.module}/cloud-init.yml")
   vars = {
     vms_ssh_root_key = var.vms_ssh_root_key
-    # DB_HOST          = yandex_mdb_mysql_cluster.prod-mysql.host[0].fqdn
-    # DB_USER          = var.db_user
-    # DB_PASS          = var.db_pass
-    # DB_NAME          = var.db_name
-    access_registry_access_key    = yandex_iam_service_account_static_access_key.sa_static_key.access_key
-    access_registry_user          = yandex_iam_service_account.registry-user.id
-    access_registry_pass          = yandex_iam_service_account_static_access_key.sa_static_key.secret_key
     yc_registry_id   = yandex_container_registry.my-registry.id
   }
 }

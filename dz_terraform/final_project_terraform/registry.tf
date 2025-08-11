@@ -26,32 +26,22 @@ resource "yandex_resourcemanager_folder_iam_binding" "puller_binding" {
     "serviceAccount:${yandex_iam_service_account.registry-user.id}",
   ]
 }
+
 # Создание ключа доступа для созданного аккаунта
 resource "yandex_iam_service_account_static_access_key" "sa_static_key" {
   service_account_id = yandex_iam_service_account.registry-user.id
   description        = "Static access key for container puller"
 }
 
-output "access_key" {
-  value = yandex_iam_service_account_static_access_key.sa_static_key.access_key
-  sensitive = true
-}
-
-output "secret_key" {
-  value = yandex_iam_service_account_static_access_key.sa_static_key.secret_key
-  sensitive = true
-}
-
-
-
-
-
+#доступ к реестру с IP адреса виртуальной машины
 resource "yandex_container_registry_ip_permission" "my_ip_permission" {
   registry_id = yandex_container_registry.my-registry.id
   pull        = ["${yandex_compute_instance.project.network_interface[0].nat_ip_address}/32"]
   depends_on = [yandex_compute_instance.project]
  }
 
+
+# Делаем репозиторий общедоступным
 resource "yandex_container_registry_iam_binding" "public_pull" {
   registry_id = yandex_container_registry.my-registry.id
   role        = var.yc_registry_role

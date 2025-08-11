@@ -18,5 +18,14 @@ output "vm-managment-ip" {
 # Вывод подсказки
 output "result" {
   value = "Для проверки необходимо использовать адресс http://${yandex_compute_instance.project.network_interface[0].nat_ip_address}:80"
-  
+}
+
+output "access_key" {
+  value = yandex_iam_service_account_static_access_key.sa_static_key.access_key
+  sensitive = true
+}
+
+output "secret_key" {
+  value = yandex_iam_service_account_static_access_key.sa_static_key.secret_key
+  sensitive = true
 }
