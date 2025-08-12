@@ -1,5 +1,5 @@
 
-
+# Создание сети. через модуль vpc_prod_module
 module "vpc_prod_module" {
   source         = "./vpc_prod_module"
   network_name   = var.vpc_network_name
@@ -12,7 +12,7 @@ module "vpc_prod_module" {
 data "yandex_compute_image" "ubuntu" {
    family = var.image_name     
  }
-
+# Создание виртуальной машины
 resource "yandex_compute_instance" "project" {
   name        = var.vm_name                                                            
   platform_id = var.vm_platform_id

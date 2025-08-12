@@ -10,7 +10,6 @@ write_files:
   - path: /etc/environment
     content: |
       yc_registry_id=${yc_registry_id}
- 
 package_update: true
 package_upgrade: false
 packages:
@@ -28,7 +27,6 @@ runcmd:
   - systemctl enable docker
   - systemctl start docker
   - rm get-docker.sh
-  - bash /root/registry-auth.sh
   - docker pull cr.yandex/${yc_registry_id}/app-web:latest
   - docker run -d -p 80:5000 cr.yandex/${yc_registry_id}/app-web:latest
   

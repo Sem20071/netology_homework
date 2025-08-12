@@ -1,3 +1,4 @@
+# Создание registry
 resource "yandex_container_registry" "my-registry" {
   name      = var.yc_registry_name
   folder_id = var.folder_id
@@ -11,26 +12,6 @@ resource "yandex_container_registry" "my-registry" {
 # Создание репозитория в registry
 resource "yandex_container_repository" "my-docker-repo" {
   name = "${yandex_container_registry.my-registry.id}/my-app"
-}
-# Создание сервисного аккаунта для доступа к реестру
-resource "yandex_iam_service_account" "registry-user" {
-  name        = "registry-user"
-  description = "Service account for pulling containers from YCR"
-}
-# Назначение прав
-resource "yandex_resourcemanager_folder_iam_binding" "puller_binding" {
-  folder_id = var.folder_id
-  role      = "container-registry.images.puller"
-  
-  members = [
-    "serviceAccount:${yandex_iam_service_account.registry-user.id}",
-  ]
-}
-
-# Создание ключа доступа для созданного аккаунта
-resource "yandex_iam_service_account_static_access_key" "sa_static_key" {
-  service_account_id = yandex_iam_service_account.registry-user.id
-  description        = "Static access key for container puller"
 }
 
 #доступ к реестру с IP адреса виртуальной машины

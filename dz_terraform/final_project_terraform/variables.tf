@@ -51,21 +51,6 @@ variable "vm_platform_id" {
   description = "yandex platform"
 }
 
-variable "vm_user_name" {
-  type        = string
-  default     = "ubuntu"       
-  description = "vm_user_name"
-  sensitive   = true
-}
-
-variable "vms_ssh_privat_key" {
-  type        = string
-  default     = "~/.ssh/id_ed25519"      
-  description = "SSH key for VM access"
-  sensitive   = true
-}
-
-
 variable "vms_ssh_root_key" {                                                             
   type = string
   default = "ssh = "
