@@ -50,6 +50,3 @@ resource "yandex_mdb_mysql_user" "app-user" {
   }
 }
 
-output "mysql_host" {
-  value = yandex_mdb_mysql_cluster.prod-mysql.host[0].fqdn
-}

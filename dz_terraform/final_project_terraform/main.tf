@@ -20,7 +20,8 @@ resource "yandex_compute_instance" "project" {
   depends_on = [
     module.vpc_prod_module,
     yandex_mdb_mysql_cluster.prod-mysql,
-    yandex_container_registry.my-registry]
+    yandex_container_registry.my-registry,
+    null_resource.push_docker_images]
   resources {
     cores         = var.vms_resources.vm.cores                           
     memory        = var.vms_resources.vm.memory                          

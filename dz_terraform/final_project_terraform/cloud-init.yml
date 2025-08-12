@@ -20,13 +20,12 @@ packages:
   - mysql-client-8.0
 runcmd:
   - curl -fsSL https://get.docker.com -o get-docker.sh
-  - sh get-docker.sh
   - groupadd docker
   - usermod -aG docker ubuntu
   - newgrp docker
+  - sh get-docker.sh
   - systemctl enable docker
   - systemctl start docker
-  - rm get-docker.sh
   - docker pull cr.yandex/${yc_registry_id}/app-web:latest
   - docker run -d -p 80:5000 cr.yandex/${yc_registry_id}/app-web:latest
   

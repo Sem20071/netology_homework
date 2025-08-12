@@ -19,3 +19,7 @@ output "vm-managment-ip" {
 output "result" {
   value = "Для проверки необходимо использовать адресс http://${yandex_compute_instance.project.network_interface[0].nat_ip_address}:80"
 }
+# FQDN хоста DB
+output "mysql_host" {
+  value = yandex_mdb_mysql_cluster.prod-mysql.host[0].fqdn
+}
